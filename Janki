@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Asociacion</title>
+
+<style>
+    :root{
+        --gap: 12px;
+        --box-width: min(140px, 22vw);
+        --box-height: calc(var(--box-width) / 2);
+        --answer-height: 45px;
+        --radius: 10px;
+        --gradient: linear-gradient(135deg, #ffffff 0%, #ffcccc 40%, #ff3b3b 100%);
+    }
+
+    body{
+        font-family: Arial, sans-serif;
+        display:flex;
+        justify-content:center;
+        background:#fff3f3;
+        margin:20px;
+    }
+
+    h1{ text-align:center; font-size:30px; margin-bottom:20px; }
+
+    .wrap{ text-align:center; }
+
+    /* GRID */
+    .grid{
+        display:grid;
+        grid-template-columns:repeat(4,1fr);
+        gap:var(--gap);
+        margin-bottom:20px;
+    }
+
+    /* FLIP STRUCTURE */
+    .flip-box{
+        width:var(--box-width);
+        height:var(--box-height);
+        perspective:1000px;
+        cursor:pointer;
+        margin:auto;
+    }
+
+    .inner{
+        position:relative;
+        width:100%;
+        height:100%;
+        transform-style:preserve-3d;
+        transition:transform .6s;
+    }
+
+    .flipped .inner{ transform:rotateY(180deg); }
+
+    .front, .back{
+        position:absolute;
+        width:100%;
+        height:100%;
+        backface-visibility:hidden;
+        border:3px solid black;
+        border-radius:var(--radius);
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        padding:5px;
+        font-weight:bold;
+    }
+
+    .front{ background:var(--gradient); }
+    .back{
+        background:white;
+        transform:rotateY(180deg);
+    }
+
+    /* COLUMN ANSWER ROW */
+    .answers-row{
+        display:grid;
+        grid-template-columns:repeat(4,1fr);
+        gap:var(--gap);
+        margin-bottom:20px;
+    }
+
+    .answer-flip{
+        width:var(--box-width);
+        height:var(--answer-height);
+        perspective:1000px;
+        cursor:pointer;
+        margin:auto;
+    }
+
+    .answer-inner{
+        position:relative;
+        width:100%;
+        height:100%;
+        transform-style:preserve-3d;
+        transition:transform .6s;
+    }
+
+    .answer-flip.flipped .answer-inner{
+        transform:rotateY(180deg);
+    }
+
+    .answer-front, .answer-back{
+        position:absolute;
+        width:100%;
+        height:100%;
+        backface-visibility:hidden;
+        border:3px solid black;
+        border-radius:var(--radius);
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-weight:bold;
+        text-transform:uppercase;
+    }
+
+    .answer-front{ background:var(--gradient); }
+    .answer-back{
+        background:white;
+        transform:rotateY(180deg);
+    }
+
+    /* FINAL ANSWER BOX */
+    .final-flip{
+        width:calc(var(--box-width)*2);
+        height:var(--answer-height);
+        margin:auto;
+        perspective:1000px;
+        cursor:pointer;
+    }
+
+    .final-inner{
+        position:relative;
+        width:100%;
+        height:100%;
+        transform-style:preserve-3d;
+        transition:transform .6s;
+    }
+
+    .final-flip.flipped .final-inner{
+        transform:rotateY(180deg);
+    }
+
+    .final-front, .final-back{
+        position:absolute;
+        width:100%;
+        height:100%;
+        backface-visibility:hidden;
+        border:3px solid black;
+        border-radius:var(--radius);
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-weight:bold;
+        text-transform:uppercase;
+    }
+
+    .final-front{ background:var(--gradient); }
+    .final-back{
+        background:white;
+        transform:rotateY(180deg);
+    }
+</style>
+</head>
+
+<body>
+<div class="wrap">
+    <h1>Asociacion</h1>
+
+    <!-- 4×4 GRID -->
+    <div class="grid">
+
+        <!-- ROW 1 -->
+        <div class="flip-box colA"><div class="inner">
+            <div class="front">A1</div><div class="back">6 × (7 − 3)</div>
+        </div></div>
+
+        <div class="flip-box colB"><div class="inner">
+            <div class="front">B1</div><div class="back">3x − 22 = 11</div>
+        </div></div>
+
+        <div class="flip-box colC"><div class="inner">
+            <div class="front">C1</div><div class="back">2000 − 88</div>
+        </div></div>
+
+        <div class="flip-box colD"><div class="inner">
+            <div class="front">D1</div><div class="back">Deti Adriatik</div>
+        </div></div>
+
+        <!-- ROW 2 -->
+        <div class="flip-box colA"><div class="inner">
+            <div class="front">A2</div><div class="back">40 − 48⁄2</div>
+        </div></div>
+
+        <div class="flip-box colB"><div class="inner">
+            <div class="front">B2</div><div class="back">x⁄2 + 11⁄2 = 11</div>
+        </div></div>
+
+        <div class="flip-box colC"><div class="inner">
+            <div class="front">C2</div><div class="back">56 × 34 + 8</div>
+        </div></div>
+
+        <div class="flip-box colD"><div class="inner">
+            <div class="front">D2</div><div class="back">Deti Jon</div>
+        </div></div>
+
+        <!-- ROW 3 -->
+        <div class="flip-box colA"><div class="inner">
+            <div class="front">A3</div><div class="back">2⁴ + 12</div>
+        </div></div>
+
+        <div class="flip-box colB"><div class="inner">
+            <div class="front">B3</div><div class="back">5(x − 9) + 1 = 11</div>
+        </div></div>
+
+        <div class="flip-box colC"><div class="inner">
+            <div class="front">C3</div><div class="back">3824⁄2</div>
+        </div></div>
+
+        <div class="flip-box colD"><div class="inner">
+            <div class="front">D3</div><div class="back">Flamurtari</div>
+        </div></div>
+
+        <!-- ROW 4 -->
+        <div class="flip-box colA"><div class="inner">
+            <div class="front">A4</div><div class="back">84⁄3</div>
+        </div></div>
+
+        <div class="flip-box colB"><div class="inner">
+            <div class="front">B4</div><div class="back">33⁄x = 3</div>
+        </div></div>
+
+        <div class="flip-box colC"><div class="inner">
+            <div class="front">C4</div><div class="back">1900 + √144</div>
+        </div></div>
+
+        <div class="flip-box colD"><div class="inner">
+            <div class="front">D4</div><div class="back">Port</div>
+        </div></div>
+
+    </div>
+
+    <!-- COLUMN ANSWERS -->
+    <div class="answers-row">
+        <div class="answer-flip" id="ansA"><div class="answer-inner">
+            <div class="answer-front">A</div><div class="answer-back">28</div>
+        </div></div>
+
+        <div class="answer-flip" id="ansB"><div class="answer-inner">
+            <div class="answer-front">B</div><div class="answer-back">11</div>
+        </div></div>
+
+        <div class="answer-flip" id="ansC"><div class="answer-inner">
+            <div class="answer-front">C</div><div class="answer-back">1912</div>
+        </div></div>
+
+        <div class="answer-flip" id="ansD"><div class="answer-inner">
+            <div class="answer-front">D</div><div class="answer-back">Vlorë</div>
+        </div></div>
+    </div>
+
+    <!-- FINAL ANSWER -->
+    <div class="final-flip" id="final"><div class="final-inner">
+        <div class="final-front">ANSWER</div><div class="final-back">Pavarësia</div>
+    </div></div>
+
+</div>
+
+<!-- ================================ -->
+<!-- JS LOGIC — FINAL BEHAVIOR ADDED -->
+<!-- ================================ -->
+
+<script>
+// One-way flip for individual grid boxes
+document.querySelectorAll(".flip-box").forEach(box => {
+    box.addEventListener("click", () => {
+        if (box.classList.contains("flipped")) return;
+        box.classList.add("flipped");
+    });
+});
+
+// Flip full column (A, B, C, D)
+function flipWholeColumn(letter) {
+    document.querySelectorAll(".col" + letter).forEach(b => {
+        if (!b.classList.contains("flipped")) {
+            b.classList.add("flipped");
+        }
+    });
+}
+
+// Column answer boxes flip ONLY their column
+document.getElementById("ansA").addEventListener("click", () => {
+    document.getElementById("ansA").classList.add("flipped");
+    flipWholeColumn("A");
+});
+
+document.getElementById("ansB").addEventListener("click", () => {
+    document.getElementById("ansB").classList.add("flipped");
+    flipWholeColumn("B");
+});
+
+document.getElementById("ansC").addEventListener("click", () => {
+    document.getElementById("ansC").classList.add("flipped");
+    flipWholeColumn("C");
+});
+
+document.getElementById("ansD").addEventListener("click", () => {
+    document.getElementById("ansD").classList.add("flipped");
+    flipWholeColumn("D");
+});
+
+// FINAL ANSWER flips EVERYTHING
+document.getElementById("final").addEventListener("click", () => {
+    document.getElementById("final").classList.add("flipped");
+
+    document.querySelectorAll(".flip-box").forEach(b => b.classList.add("flipped"));
+    document.querySelectorAll(".answer-flip").forEach(a => a.classList.add("flipped"));
+});
+</script>
+
+</body>
+</html>
